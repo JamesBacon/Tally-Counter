@@ -1,0 +1,116 @@
+[ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 7; ]
+import Toybox.Graphics;
+[ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 8; ]
+import Toybox.Lang;
+[ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 9; ]
+import Toybox.WatchUi;
+[ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 12; ]
+class InputView extends WatchUi.View{
+    [ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 12; ]
+    <init> {
+    }
+    [ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 12; ]
+    static
+    <init> {
+    }
+    [ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 14; @position = 16; ]
+    private
+    var _stroke;
+    //! Constructor
+    [ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 17; ]
+    public
+    function initialize() as Void {
+O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_17_33_start:
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 18 8 ]
+        %tmp.2 = getv ? :View;
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 19 8 ]
+        %tmp.4 = 0;
+        putv self :_stroke %tmp.4;
+O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_17_33_stop:
+    }
+    //! Update the view
+    //! @param dc Device Context
+    [ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 24; ]
+    public
+    function onUpdate(dc as Dc) as Void {
+O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_start:
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 25 8 ]
+        %tmp.1 = lgetv %dc;
+        %tmp.2 = getv function %tmp.1 :setColor;
+        %tmp.3 = getm $.Toybox.Graphics;
+        %tmp.4 = getv %tmp.3 :COLOR_WHITE;
+        %tmp.5 = getm $.Toybox.Graphics;
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 26 8 ]
+        %tmp.7 = lgetv %dc;
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 28 8 ]
+        [ "O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_start" "O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_stop" ]
+        %dy.1 = local;
+        %tmp.9 = lgetv %dc;
+        %tmp.10 = getv function %tmp.9 :getFontHeight;
+        %tmp.11 = getm $.Toybox.Graphics;
+        %tmp.12 = getv %tmp.11 :FONT_SMALL;
+        %tmp.13 = invoke %tmp.9 %tmp.10(%tmp.12);
+        lputv %dy.1 %tmp.13;
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 29 8 ]
+        [ "O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_start" "O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_stop" ]
+        %x.2 = local;
+        %tmp.14 = lgetv %dc;
+        %tmp.15 = getv function %tmp.14 :getWidth;
+        %tmp.16 = invoke %tmp.14 %tmp.15();
+        %tmp.17 = 2;
+        %tmp.18 = div %tmp.16 %tmp.17;
+        lputv %x.2 %tmp.18;
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 30 8 ]
+        [ "O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_start" "O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_stop" ]
+        %y.3 = local;
+        %tmp.19 = lgetv %dc;
+        %tmp.20 = getv function %tmp.19 :getHeight;
+        %tmp.21 = invoke %tmp.19 %tmp.20();
+        %tmp.22 = 2;
+        %tmp.23 = div %tmp.21 %tmp.22;
+        lputv %y.3 %tmp.23;
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 31 8 ]
+        %tmp.24 = lgetv %y.3;
+        %tmp.25 = 4;
+        %tmp.27 = lgetv %dy.1;
+        %tmp.28 = mul %tmp.25 %tmp.27;
+        %tmp.29 = 2;
+        %tmp.30 = div %tmp.28 %tmp.29;
+        %tmp.31 = sub %tmp.24 %tmp.30;
+        lputv %y.3 %tmp.31;
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 33 8 ]
+        %tmp.32 = lgetv %dc;
+        %tmp.33 = getv function %tmp.32 :drawText;
+        %tmp.35 = lgetv %x.2;
+        %tmp.37 = lgetv %y.3;
+        %tmp.38 = getm $.Toybox.Graphics;
+        %tmp.39 = getv %tmp.38 :FONT_NUMBER_HOT;
+        %tmp.41 = getv ? :_stroke;
+        %tmp.42 = getm $.Toybox.Graphics;
+        %tmp.43 = getv %tmp.42 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.32 %tmp.33(%tmp.35, %tmp.37, %tmp.39, %tmp.41, %tmp.43);
+O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_24_47_stop:
+    }
+    [ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 37; ]
+    public
+    function setStroke(stroke) as Void {
+O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_37_46_start:
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 38 8 ]
+        %tmp.2 = lgetv %stroke;
+        putv self :_stroke %tmp.2;
+[ "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc" 39 8 ]
+        %tmp.3 = getm $.Toybox.WatchUi;
+        %tmp.4 = getv function %tmp.3 :requestUpdate;
+        invoke %tmp.3 %tmp.4();
+O_OneDrive_Projects_Garmin_Watch_Tally_Counter_source_InputView_mc_37_46_stop:
+    }
+}
+[ @file = "O:\OneDrive\Projects\Garmin Watch\Tally Counter\source\InputView.mc"; @line = 7; ]
+<init> {
+}
