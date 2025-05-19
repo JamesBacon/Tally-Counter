@@ -16,7 +16,6 @@ class InputView extends WatchUi.View {
     //! Constructor
     public function initialize() {
         View.initialize();
-        _stroke = 0;
     }
 
     //! Update the view

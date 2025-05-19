@@ -16,6 +16,8 @@ class InputDelegate extends WatchUi.BehaviorDelegate {
 
     private var _stroke as Number?; // Creates the Stroke variable.
 
+    var app = Application.getApp();
+
     //! Constructor
     //! @param view The InputView to operate on
     public function initialize(view as InputView) {
@@ -23,7 +25,13 @@ class InputDelegate extends WatchUi.BehaviorDelegate {
 
         _parentView = view;
 
-        _stroke = 0; // Sets the Stroke to 0 when the app is launched.
+        var savedStroke = app.getProperty("counter");
+        if (savedStroke == null) {
+            _stroke = 0;
+        } else {
+        _stroke = savedStroke;
+        }
+        _parentView.setStroke(_stroke);
 
     }
 
@@ -45,9 +53,15 @@ class InputDelegate extends WatchUi.BehaviorDelegate {
         }
 
         if (key == KEY_ESC) { // Requires the user to press the Esc key twice to exit the app.
+        // Check if the last key pressed was the ESP/Back Key. If so, exit the app.
+        app.setProperty("counter", _stroke);
             if (_lastKey == KEY_ESC) {
                 System.exit();
             }
+        }
+
+        if (key == KEY_UP) {
+            System.println(app.getProperty("counter"));
         }
 
         _lastKey = key; // Saves the last key pressed.
